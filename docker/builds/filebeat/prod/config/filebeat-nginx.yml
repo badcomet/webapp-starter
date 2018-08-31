@@ -1,0 +1,27 @@
+#=========================== Filebeat prospectors =============================
+filebeat:
+    prospectors:
+        -
+            # Paths that should be crawled and fetched. Glob based paths.
+            paths:
+                - /var/log/nginx/access.log
+            document_type: nginx-access
+            encoding: utf-8
+            fields:
+                service: nginx
+        -
+            paths:
+                - /var/log/nginx/error.log
+            document_type: nginx-error
+            encoding: utf-8
+            fields:
+                service: nginx
+            # Handle multiline events before sending to Logstash (stack trace case)
+            multiline:
+                # Matches:
+                #   [13-Feb-2017 09:50:41 Europe/Paris]
+                #       OR
+                #   2017/11/13 09:27:30 [error]
+                pattern: '^(\[((?:(?:0[1-9])|(?:[12][0-9])|(?:3[01])|[1-9])-\b(?:[Jj]an(?:uary|uar)?|[Ff]eb(?:ruary|ruar)?|[Mm](?:a|ä)?r(?:ch|z)?|[Aa]pr(?:il)?|[Mm]a(?:y|i)?|[Jj]un(?:e|i)?|[Jj]ul(?:y)?|[Aa]ug(?:ust)?|[Ss]ep(?:tember)?|[Oo](?:c|k)?t(?:ober)?|[Nn]ov(?:ember)?|[Dd]e(?:c|z)(?:ember)?)\b-\d{4})[[:space:]]((?:2[0123]|[01]?[0-9]):(?:[0-5][0-9]):(?:(?:[0-5]?[0-9]|60)(?:[:.,][0-9]+)?))(?:\s+([0-9]+Z|[A-Z]+|[A-Za-z]+\/[A-Za-z]+)|)\]|(\d{4}\/\d{2}\/\d{2})[[:space:]]((?:2[0123]|[01]?[0-9]):(?:[0-5][0-9]):(?:(?:[0-5]?[0-9]|60)(?:[:.,][0-9]+)?))[[:space:]](\[error\]))'
+                negate: true
+                match: after

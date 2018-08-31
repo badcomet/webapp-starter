@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.js"],"names":["a","test","console","log"],"mappings":";;AAAA,IAAMA,CAAC,GAAG,QAAV;;AAEA,IAAIC,IAAI,GAAG,SAAPA,IAAO,GAAM;AACbC,EAAAA,OAAO,CAACC,GAAR,CAAY,cAAZ;AACH,CAFD","file":"app.js","sourcesContent":["const a = \"coucou\"\n\nvar test = () => {\n    console.log(\"Hello you..!\");\n}"]}

@@ -1,0 +1,20 @@
+@import "variables";
+@import "bootstrap";
+ 
+@font-face {
+  font-family: 'mark';
+  font-weight: normal;
+  src: url('../fonts/MarkPro-Light_ALt.woff');
+  src: url('../fonts/MarkPro-Light_ALt.woff') format("embedded-opentype"), url('../fonts/MarkPro-Light_ALt.woff') format("woff"), url('../fonts/MarkPro-Light_ALt.ttf') format("truetype");
+}
+
+
+@font-face {
+  font-family: 'mark';
+  font-weight: bold;
+  src: url('../fonts/MarkPro-Medium_ALt.woff');
+  src: url('../fonts/MarkPro-Medium_ALt.woff') format("embedded-opentype"), url('../fonts/MarkPro-Medium_ALt.woff') format("woff"), url('../fonts/MarkPro-Medium_ALt.ttf') format("truetype");
+}
+
+// Global variables
+$app-blue : #006FF4;

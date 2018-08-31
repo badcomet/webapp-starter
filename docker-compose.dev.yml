@@ -1,0 +1,25 @@
+version: '2'
+services:
+
+    web:
+        labels:
+            - "traefik.backend=${COMPOSE_PROJECT_NAME}-web"
+            - "traefik.frontend.rule=Host:${COMPOSE_PROJECT_NAME}.${DOMAIN_NAME}.${DOMAIN_EXTENSION}"
+            - "traefik.port=80"
+        networks:
+            - envdev
+        volumes:
+            - ./app:/var/www/html
+
+    filebeat:
+        networks:
+            - envdev
+        volumes:
+            - ./docker/builds/filebeat/prod/config:/etc/filebeat/conf.d
+        depends_on:
+            - web
+
+networks:
+    envdev:
+        external:
+            name: system_envdev

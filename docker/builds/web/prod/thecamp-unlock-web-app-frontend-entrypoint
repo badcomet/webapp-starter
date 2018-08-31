@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+# Replace ENV vars on run
+cp /var/www/html/public/js/environment.js.dist /var/www/html/public/js/environment.js
+
+sed -i \
+    -e "s/\$ENVIRONMENT/"${ENVIRONMENT}"/g" \
+    -e "s/\$DOMAIN_NAME/"${DOMAIN_NAME}"/g" \
+    -e "s/\$DOMAIN_EXTENSION/"${DOMAIN_EXTENSION}"/g" \
+    -e "s/\$PROTOCOL/"${PROTOCOL}"/g" \
+    /var/www/html/public/js/environment.js
+
+# Using official image entrypoint
+exec thecamp-nginx-entrypoint "$@"

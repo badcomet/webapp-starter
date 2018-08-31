@@ -1,0 +1,61 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.6.0/libexec/bin/yarn.js install
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  8.11.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/benjaminp/git/interactive-map/app/package.json: Unexpected string in JSON at position 278
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.6.0/libexec/lib/cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.6.0/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.6.0/libexec/lib/cli.js:109:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "name": "interactive-map",
+    "version": "1.0.0",
+    "description": "Interactive map of thecamp famous places ",
+    "main": "app.js",
+    "repository": "git@bitbucket.org:benjaminpinel/interactive-map.git",
+    "author": "Benjamin Pinel <pinel.b@gmail.com>",
+    "license": "MIT"
+  
+    "dependencies": {
+      "babel-core": "^6.26.3",
+      "babel-preset-env": "^1.7.0",
+      "easy-autocomplete": "^1.3.5",
+      "gulp": "^3.9.1",
+      "gulp-autoprefixer": "latest",
+      "gulp-cssbeautify": "latest",
+      "gulp-csscomb": "latest",
+      "gulp-csso": "latest",
+      "gulp-load-plugins": "latest",
+      "gulp-plumber": "^1.1.0",
+      "gulp-sass": "^3.1.0",
+      "jquery": "^3.3.1",
+      "materialize-css": "^1.0.0-rc.2"
+    },
+    "devDependencies": {
+      "gulp-concat": "^2.6.1",
+      "gulp-rename": "^1.3.0",
+      "gulp-uglify": "^3.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

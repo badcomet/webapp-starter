@@ -1,0 +1,7 @@
+// Will be replace on run
+var environment = '$ENVIRONMENT';
+if (environment == 'prod') {
+    var currentDomain = 'https://thecamp.fr';
+} else {
+    var currentDomain = 'http://contenthub.$DOMAIN_NAME.$DOMAIN_EXTENSION';
+}

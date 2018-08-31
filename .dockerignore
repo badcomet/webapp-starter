@@ -1,0 +1,9 @@
+# Macos
+.DS_Store
+
+# .gitignore
+# .git/
+# docker/ # Required in order to be able to copy config files from this path during dev env build...
+
+# Private files
+private/

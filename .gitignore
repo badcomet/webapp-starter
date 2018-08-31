@@ -1,0 +1,28 @@
+# Cruft
+.DS_Store
+
+# Docker-sync
+/.docker-sync
+docker-sync.yml
+
+# Special case for docker-compose override compatibility
+docker-compose.override.yml
+
+# Locally generated env files
+.env
+host.env
+host.env.*
+
+# Node modules
+/app/private/node_modules/
+
+# Javascript environment
+/app/public/js/environment.js
+
+# Eclipse
+.buildpath
+.project
+/.settings/
+
+# phpstorm files
+.idea

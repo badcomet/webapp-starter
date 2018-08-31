@@ -1,0 +1,30 @@
+version: '2'
+services:
+
+    web:
+        image: ${COMPOSE_PROJECT_NAME}-web:${ENVIRONMENT}
+        build:
+            context: .
+            dockerfile: ./docker/builds/web/${ENVIRONMENT}/Dockerfile
+            args:
+                - ENVIRONMENT=${ENVIRONMENT}
+        ports:
+            - "${HTTP_PORT}:80"
+            - "${HTTPS_PORT}:443"
+        env_file:
+            - ./.env
+
+    filebeat:
+        image: ${COMPOSE_PROJECT_NAME}-filebeat:${ENVIRONMENT}
+        build:
+            context: .
+            dockerfile: ./docker/builds/filebeat/${ENVIRONMENT}/Dockerfile
+            args:
+                - ENVIRONMENT=${ENVIRONMENT}
+        command: ["filebeat", "-e"]
+        # /!\ volumes_from is deprecated in compose file v3
+        # @see https://github.com/docker/compose/issues/4379 for alternatives
+        volumes_from:
+            - web
+        env_file:
+            - ./.env
